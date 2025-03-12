@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-icon {
+  margin-bottom: -4px;
+}
+
+.p-2 {
+  padding: 8px; /* or 0.5rem, etc. */
+}
+.mat-mdc-row {
+  margin-top: 8px; /* or 0.5rem, etc. */
+  margin-bottom: 8px; /* or 0.5rem, etc. */
+}
+
+.p-3 {
+  padding: 16px;
+}
+
+.p-4 {
+  padding: 24px;
+}
+.big-icon {
+  height: 48px !important;
+  width:48px !important;
+  font-size: 48px !important;
+  margin-bottom: -8px !important;
+  /* line-height: 1;  (optional, if you need to adjust vertical alignment) */
+}

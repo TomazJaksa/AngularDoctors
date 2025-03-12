@@ -1,0 +1,56 @@
+<mat-toolbar color="primary" class="toolbar">
+  <span class="toolbar-title">
+    <!-- person icon for the "Doctor Details" heading -->
+    <mat-icon>local_hospital</mat-icon>
+    Doctors List
+  </span>
+</mat-toolbar>
+<!-- doctor-list.component.html (for example) -->
+<mat-card class="doctor-card mat-elevation-z8">
+  <div class="table-responsive">
+    <mat-table #table [dataSource]="doctors" class="responsive-table">
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+        <mat-cell *matCellDef="let doctor"> {{ doctor.id }} </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let doctor"> {{ doctor.name }} </mat-cell>
+      </ng-container>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+        <mat-cell *matCellDef="let doctor"> {{ doctor.email }} </mat-cell>
+      </ng-container>
+
+      <!-- Phone Column -->
+      <ng-container matColumnDef="phone">
+        <mat-header-cell *matHeaderCellDef> Phone </mat-header-cell>
+        <mat-cell *matCellDef="let doctor"> {{ doctor.phone }} </mat-cell>
+      </ng-container>
+
+      <!-- Website Column -->
+      <ng-container matColumnDef="website">
+        <mat-header-cell *matHeaderCellDef> Website </mat-header-cell>
+        <mat-cell *matCellDef="let doctor">
+          <a mat-button [href]="'https://' + doctor.website" target="_blank">{{ doctor.website }}</a>
+        </mat-cell>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+        <mat-cell *matCellDef="let doctor">
+          <button mat-button color="primary" (click)="viewDoctor(doctor.id)">View</button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row  *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+</mat-card>

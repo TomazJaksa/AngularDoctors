@@ -1,0 +1,29 @@
+.toolbar {
+  background-color: #162640 !important;
+  color: white;
+}
+/* Spacing and alignment for the toolbar’s text */
+.toolbar-title {
+  margin-left: 0.5rem;
+  font-weight: 600;
+}
+.doctor-card {
+  border-radius: 8px; /* slight rounded corners */
+  margin: 20px;
+}
+
+.table-responsive {
+  /* Let this container fill available space or define your own height limit */
+  /*max-height: 70vh; /* or 100vh, or calc(100vh - someOffset) */
+  overflow-x: auto; /* Horizontal scroll if table is wide */
+  overflow-y: auto; /* Vertical scroll if table is tall */
+  background-color: transparent !important; /* Light grey background */
+}
+
+/* 
+  Force columns to maintain a minimum width if needed, 
+  so columns don’t get too squished on very narrow screens. 
+*/
+.responsive-table {
+  min-width: 600px; /* adjust as needed */
+}

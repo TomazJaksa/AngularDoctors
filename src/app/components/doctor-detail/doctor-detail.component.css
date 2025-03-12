@@ -1,0 +1,88 @@
+/* doctor-detail.component.css */
+
+/* Make sure we have some padding around the main content */
+.content-container {
+  max-width: 1200px; /* optional, keep it narrower if you want a more centered layout */
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Spacing and alignment for the toolbar’s text */
+.toolbar-title {
+  margin-left: 0.5rem;
+  font-weight: 600;
+}
+
+/* Card styling for doctor and tasks sections */
+.doctor-card,
+.tasks-card {
+  padding: 1rem;
+  border-radius: 8px; /* slight rounded corners */
+  margin-bottom: 1rem;
+}
+
+/* Slightly bigger margin between card header and content */
+mat-card-header {
+  margin-bottom: 1rem;
+}
+
+/* Adjust the tables inside the cards */
+.doctor-table,
+.tasks-table {
+  width: 100%;
+}
+
+/* Tweak header cells for readability */
+.mat-header-cell {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Example: add some row hover styling */
+.mat-row:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* Example: highlight completed tasks text (if you used the <span> approach) */
+.completed-text {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto; /* allows horizontal scroll if table is too wide */
+}
+
+.doctor-table {
+  min-width: 600px; /* or any width that ensures columns don't squish too much */
+  /* Additional table styling if desired */
+}
+
+
+.header-icon {
+  margin-bottom: -1px !important;
+  padding-right: 5px;
+  font-size:20px;
+}
+
+.p-2 {
+  padding: 8px; /* or 0.5rem, etc. */
+}
+
+.p-3 {
+  padding: 16px;
+}
+
+.p-4 {
+  padding: 24px;
+}
+
+.toolbar {
+  background-color: #162640 !important;
+  color: white;
+}

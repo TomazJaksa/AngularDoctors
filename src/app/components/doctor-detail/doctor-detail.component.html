@@ -1,0 +1,107 @@
+<!-- doctor-detail.component.html -->
+<mat-toolbar color="primary" class="toolbar">
+  <span class="toolbar-title">
+    <!-- person icon for the "Doctor Details" heading -->
+    <mat-icon>local_hospital</mat-icon>
+    Doctor Details
+  </span>
+</mat-toolbar>
+
+
+<div class="content-container">
+  <mat-card-actions>
+   
+    <button mat-button color="primary" [routerLink]="'/'">
+      <mat-icon>keyboard_double_arrow_left</mat-icon>
+      Back Home
+    </button>
+  </mat-card-actions>
+  <!-- Doctor Card -->
+  <mat-card class="doctor-card mat-elevation-z6" *ngIf="doctor">
+    <mat-card-header>
+      <mat-card-title>
+        <h2 class="mat-title">
+          <mat-icon class="big-icon">person</mat-icon>
+          {{ doctor.name }}
+        </h2>
+      </mat-card-title>
+      <mat-card-subtitle>
+        <span class="mat-subtitle-2">
+          {{ doctor.company?.name }} &ndash; {{ doctor.company?.catchPhrase }}
+        </span>
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <!-- Responsive container -->
+      <div class="table-responsive">
+        <table mat-table
+               [dataSource]="doctorDataSource"
+               class="mat-elevation-z8 doctor-table p-2">
+          <!-- Email Column -->
+          <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef><mat-icon class="header-icon">email</mat-icon>Email</mat-header-cell>
+            <mat-cell *matCellDef="let doc">{{ doc.email }}</mat-cell>
+          </ng-container>
+
+          <!-- Phone Column -->
+          <ng-container matColumnDef="phone">
+            <mat-header-cell *matHeaderCellDef><mat-icon class="header-icon">phone</mat-icon>Phone</mat-header-cell>
+            <mat-cell *matCellDef="let doc">{{ doc.phone }}</mat-cell>
+          </ng-container>
+
+          <!-- Username Column -->
+          <ng-container matColumnDef="username">
+            <mat-header-cell *matHeaderCellDef> <mat-icon class="header-icon">person</mat-icon>Username</mat-header-cell>
+            <mat-cell *matCellDef="let doc">{{ doc.username }}</mat-cell>
+          </ng-container>
+
+          <!-- Website Column -->
+          <ng-container matColumnDef="website">
+            <mat-header-cell *matHeaderCellDef><mat-icon class="header-icon">public</mat-icon>Website</mat-header-cell>
+            <mat-cell *matCellDef="let doc">
+              <a mat-button [href]="'https://' + doc.website" target="_blank">{{ doc.website }}</a>
+            </mat-cell>
+          </ng-container>
+
+          <!-- Address Column -->
+          <ng-container matColumnDef="address">
+            <mat-header-cell *matHeaderCellDef> <mat-icon class="header-icon">location_on</mat-icon>Address</mat-header-cell>
+            <mat-cell *matCellDef="let doc">
+              {{ doc.address?.street }}, {{ doc.address?.suite }},
+              {{ doc.address?.city }}, {{ doc.address?.zipcode }}
+            </mat-cell>
+          </ng-container>
+
+          <!-- Header and Row Declarations -->
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </table>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Tasks Card -->
+  <mat-card class="tasks-card" *ngIf="tasks && tasks.length">
+    <mat-card-title class="mat-title p-2">
+
+      <h3><mat-icon>assignment</mat-icon> Tasks</h3>
+    </mat-card-title>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-content>
+      <!-- A selection list with each task as a list-option.
+           If the task is completed, we mark it as selected.
+           We also disable the option if you don’t want it clickable. -->
+      <mat-selection-list>
+        <mat-list-option *ngFor="let task of tasks"
+                         [selected]="task.completed"
+                         [disabled]="false">
+          {{ task.title }}
+        </mat-list-option>
+      </mat-selection-list>
+    </mat-card-content>
+  </mat-card>
+
+</div>
